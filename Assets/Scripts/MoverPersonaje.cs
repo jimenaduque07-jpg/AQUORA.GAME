@@ -72,30 +72,4 @@ public class MoverPersonaje : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * fuerzaDeSalto, ForceMode2D.Impulse);
     }
-
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("DeathZone"))
-        {
-            StartCoroutine(MorirYReiniciar());
-        }
-    }
-
-
-    IEnumerator MorirYReiniciar()
-    {
-        puedeMover = false;
-
-
-        rb.velocity = Vector2.zero;
-        rb.isKinematic = true;
-
-
-
-        yield return new WaitForSeconds(0.8f);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }
