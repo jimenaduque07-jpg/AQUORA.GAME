@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -38,7 +38,7 @@ public class MoverPersonaje : MonoBehaviour
 
         animador.SetBool("isWalking", horizontal != 0);
 
- 
+
         if (horizontal != 0)
         {
             transform.localScale = new Vector3(
@@ -54,7 +54,7 @@ public class MoverPersonaje : MonoBehaviour
             Saltar();
         }
 
-  
+
         animador.SetBool("isJumping", !tocaSuelo);
     }
 
