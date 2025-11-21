@@ -1,20 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PortalNivel2 : MonoBehaviour
+public class PortalNivel2Controller : MonoBehaviour
 {
     public GameObject panelGanaste;
-    public string nombreJugador = "Idle1 1";
-
-    public int cuarzosNecesarios = 12;
-    public ControladorDeCuarzos controladorCuarzos;
+    public int notaNecesarios = 1;
+    public ControladorDeNota controladorNota;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == nombreJugador)
+        if (collision.CompareTag("Player"))
         {
-            if (controladorCuarzos != null &&
-                controladorCuarzos.cuarzos >= cuarzosNecesarios)
+            if (controladorNota != null &&
+                controladorNota.nota >= notaNecesarios)
             {
                 if (panelGanaste != null)
                 {
@@ -25,7 +23,7 @@ public class PortalNivel2 : MonoBehaviour
             }
             else
             {
-                Debug.Log("Necesitas " + cuarzosNecesarios + " cuarzos para activar el portal");
+                Debug.Log("Necesitas " + notaNecesarios + " notas para activar el portal");
             }
         }
     }
